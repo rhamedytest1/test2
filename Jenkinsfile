@@ -7,11 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'mvn --version'
-            }
-            steps {
                 sh 'mvn -B -DskipTests clean package' 
-            }
-            steps {
                 sh 'mvn test' 
             }
             post {
