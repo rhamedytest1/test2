@@ -4,7 +4,7 @@ pipeline {
         issueCommentTrigger('.*test this please.*')
     }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 sh 'mvn --version'
             }
