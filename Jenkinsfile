@@ -4,11 +4,23 @@ pipeline {
         issueCommentTrigger('.*test this please.*')
     }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
                 sh 'mvn --version'
+            }
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh 'mvn test' 
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml' 
+                }
             }
         }
     }
 }
-
