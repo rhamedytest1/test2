@@ -1,7 +1,7 @@
 pipeline {
     agent { docker { image 'maven:3.3.3' } }
     triggers {
-        issueCommentTrigger('.*test this please.*')
+        issueCommentTrigger('.*full test.*')
     }
     stages {
         stage('build') {
